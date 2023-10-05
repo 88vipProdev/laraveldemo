@@ -23,7 +23,7 @@ Route::get('/', function () {
 route::prefix('admin')->name('admin.')->group(function (){
 
     route::get('home',[HomeController::class , 'home'])->name('home');
-    route::get('/registerView' , [RegisterController::class, 'RegisterView'])->name('registerView');
-    route::post('/register' , [RegisterController::class , 'registerView'])->name('register');
+    route::get('registerView' , [RegisterController::class, 'RegisterView'])->name('registerView');
+    route::post('registerView' , [RegisterController::class , 'register'])->name('register');
     route::get('loginView',[LoginController::class , 'loginView'])->name('loginView');
 });
