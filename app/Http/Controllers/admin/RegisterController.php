@@ -19,31 +19,38 @@ class RegisterController extends Controller
         return view('admin.register');
     }
 
-    public function register(request $request)
+    public function register(Request $request)
     {
 
         echo "helo";
-        $request->validate([
+       
+       $data= $request ->validate([
             'username'=>'required|min:8',
             'email'=>'required|email',
-             'password' => 'required|min:8|confirmed',
+            'password' =>'required|min:8',
+
+
         ],[
-            'username.required'=>'Full name cannot be left blankHo',
-            'email.required'=>'Full name must not be less than 8 characters',
-            'password.required'=>'password must be identical'
 
-        ]);      
-
+            'username.required' => 'khong duoc bo trong va khong duoc nho hon :min ky tu',
+            'email.required'=> 'khong duoc bo trong',
+            'password.required' =>'khong duoc bo trong'
+        ]);
+        
 
         $datalist = [
-          'username'=>$request->input('username'),
-          'email'=> $request->input('email'),
-           'password'=>$request->input('password'),
+            $request->input('username'),
+            $request->input('email'),
+           $request->input('password'),
             'create_at'=>date('Y-m-d H:i:s')
-        ];
+        ] ;
+
+          
+        
             
-        $this->model->createUser($datalist);    
-        return $this->redirect('admin.home')->with('msg' , 'dang ky thanh cong');
-  
+        $this->model->createUser($datalist);   
+            
+        
+    //     // return $this->redirect('admin.home')->with('msg' , 'dang ky thanh cong');
     }
 }
