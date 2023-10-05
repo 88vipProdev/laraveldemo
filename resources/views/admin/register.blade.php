@@ -7,20 +7,26 @@
     <title>Document</title>
 </head>
 <body>
-        <div>
-            <h1>Register</h1>
-            <form action="{{route('admin.register')}}" method="post">
-                @csrf
-                <label for="">username</label><br>
-                <input type="text" name="username" id="" placeholder="username"><br>
-                <label for="">email</label><br>
-                <input type="text" name="email" id="" placeholder="email"><br>
-                <label for="">password</label><br>
-                <input type="text" name="password" id="" placeholder="password"><br>
-                <label for="">confirm password</label><br>
-                <input type="text" name="password" id="" placeholder="confirm password"><br>
-                <button type="submit" >Register</button>
-            </form>
-        </div>
+        
+     <div>
+          <h1>Register</h1>
+        <form action="{{route('admin.register')}}" method="post">
+            @csrf
+            <label for="username">Username</label><br>
+            <input type="text" name="username" id="username" placeholder="Username"><br>
+    
+            <label for="email">Email</label><br>
+            <input type="email" name="email" id="email" placeholder="Email"><br>
+    
+            <label for="password">Password</label><br>
+            <input type="password" name="password" id="password" placeholder="Password"><br>
+    
+            <label for="password_confirmation">Confirm Password</label><br>
+            <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm Password"><br>
+    
+            <button type="submit">Register</button>
+        </form>
+    
+     </div>
 </body>
 </html>
